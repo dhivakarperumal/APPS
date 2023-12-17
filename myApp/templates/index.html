@@ -1,0 +1,44 @@
+{% extends 'main.html'  %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    <strong>Data Lists</strong>
+    {% for i in response %}
+ 
+      <p>{{ i.title }}</p>
+      <p>{{i.price}}</p>
+      <p>{{i.description}}</p>
+      <img src="{{ i.image }}"  width="400" height="200px" alt="">
+      <p>Rating::{{i.rating.rate}}</p>
+      <p>Count::{{i.rating.count}}</p>
+      <p>Catagory::{{i.category}}</p>
+      <hr>
+
+    {%  endfor %}
+
+
+    <div class="container">
+      <h1 class="text-center">Products</h1>
+      <div class="row">
+        {% for i in response %}
+        <div class="col-md-12 col-lg-3">
+          <div class="card mx-3 mt-3" style="width: 17rem;">
+            <img src="{{ i.image }}"  width="240" height="200px" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ i.title }}</h5>
+              <p class="card-text">{{i.description}}</p>
+              <p>Rating::{{i.rating.rate}}</p>
+              <p>Count::{{i.rating.count}}</p>
+              <a href="#" class="btn btn-success">Add To Cart</a>
+              <a href="#" class="btn btn-danger">Remove</a>
+            </div>
+          </div>
+        </div>
+        {%  endfor %}
+      </div>
+    </div>
+       
+   
+{%  endblock content %}
